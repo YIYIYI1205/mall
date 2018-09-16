@@ -1,0 +1,14 @@
+<!-- 分销页面中收益的详情 -->
+<div> 
+  <div class="head">
+  	<div>序号</div>
+    <div>店名</div>
+    <div>手机号</div>
+    <div>收益</div>
+  </div>
+  <div class="content" ng-repeat="(key,item) in items">
+  	<div ng-bind="key+1"></div>	
+    <div ng-bind="item.shop"></div>
+    <div ng-bind="item.sailman_tel"></div>
+    <div ng-bind="item.team"></div>
+</div>

@@ -1,0 +1,19 @@
+<!-- 供应商和分销的记录页面 -->
+<div> 
+  <div class="head">
+  	<!-- <div>序号</div> -->
+    <div>提现金额</div>
+    <div>提现时间</div>
+    <div>提现方式</div>
+    <div>提现ID</div>
+    <div>提现状态</div>
+  </div>
+  <div class="content" ng-repeat="(key,item) in items">
+  	<!-- <div ng-bind="key+1"></div>	 -->
+    <div ng-bind="item.money"></div>
+    <div ng-bind="item.tixian_time"></div>
+    <div ng-bind="item.tx_type"></div>
+    <div ng-bind="item.tixianid"></div>
+    <div ng-bind="item.status"></div>
+</div>
+</div>

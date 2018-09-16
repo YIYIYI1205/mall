@@ -1,0 +1,106 @@
+<!-- 供应商的资料页面 -->
+<span style="color: red;padding: 20px 0 0 10px;">(若想修改信息请联系客服)</span>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">手机号</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="tel"></div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">公司名称</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="company"></div>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">联系人地址</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="area"></div>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">联系人姓名</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="name"></div>
+    </div>
+  </div>
+  <!-- <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">证件类型</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="zhengjiantype"></div>
+    </div>
+  </div> -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">证件号码</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="zhengjiannumber"></div>
+    </div>
+  </div>
+</div>
+<a class="weui-btn weui-btn_primary" id="fenxiao">点击成为分销</a>
+<div class="erweima" style="margin-top: 20px;">
+  <img ng-src="http://www.lexianglive.com:/{{mafile}}">
+  <div>(发展团队成员二维码)</div>
+</div>
+<script>
+  $(function(){
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        // 有问号代表有参数
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);//获取中文参数转码<span style="font-family: Arial, Helvetica, sans-serif;">decodeURI</span>，（unescape只针对数字，中文乱码)
+            }
+        }
+    // 点击成为分销
+    var flag=true;
+    
+      $("#fenxiao").click(function(){
+            if(flag){
+              $.ajax({
+                url:"http://lexianglive.com/users/supplysail",
+                method:"get",
+                data:{
+                  openid:parseInt(theRequest.openid),
+                  usertype:parseInt(theRequest.usertype)
+                },
+                success:function(res){
+                  console.log(res);
+                  if(res.errCode==0){
+                    alert("成功");
+                  }else{
+                    alert("您已经是分销了");
+                  }
+                  //按钮颜色变灰
+                  $("#fenxiao").css("background","#aaa");
+                  flag=false; 
+                  // 这个用的是之前注册的后台，相当于更新了数据
+                }
+              }); 
+            }  
+      });
+    
+    
+})
+</script>
+<script>
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+    $("#diwu").attr("class","active");
+</script>

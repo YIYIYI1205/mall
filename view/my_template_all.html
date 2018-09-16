@@ -1,0 +1,44 @@
+<!-- 用户页面的全部订单和分销页面的全部订单都用的这个模版 -->
+<!-- 但是表示的意义不同 -->
+<!-- 用户页面的全部订单是指它购买的商品的订单 -->
+<!-- 分销页面的全部订单是指它的产品被别人购买的订单 -->
+<!-- 所以用户页面有预约功能，分销页面没有预约功能 -->
+<!-- 注意，点击跳转详情得分开写，否则点击a也会跳转详情页面 -->
+ <li ng-repeat="item in items" class="list">
+  <div class="top" ng-click="goto(item.product_id,openid,usertype)">
+    <div class="title" ng-bind="item.title"></div>
+    <div class="status" style="color:#ccc;" ng-show="item.status=='已使用'" ng-bind="item.status"></div>
+    <div class="status"  ng-show="item.status=='未使用'" ng-bind="item.status"></div>
+    <div class="status"  ng-show="item.status=='需邮寄'" ng-bind="item.status"></div>
+    <div class="status"  ng-show="item.status=='已邮寄'" ng-bind="item.status"></div>
+    <div class="status"  ng-show="item.status=='支付失败'" ng-bind="item.status" style="color:red;"></div>
+    <div class="status"  ng-show="item.status=='未付款'" ng-bind="item.status" style="color:red;"></div>
+  </div>
+  <div class="bottom">
+    <div class="left" ng-click="goto(item.product_id,openid,usertype)">
+        <div class="recieve" ng-bind="'收货人：'+item.order_name"></div>
+        <div class="recievetel" ng-bind="'手机号：'+item.order_tel"></div>
+        <div class="time" ng-bind="'使用时间：'+item.useStart+'至'+item.useEnd" ng-show="item.showtime==0"></div>
+        <div class="time" ng-bind="'使用时间：'+item.useday" ng-show="item.showtime==1"></div>
+        <div class="number" ng-bind="'电子码：'+item.elcs_num"></div>  
+        <div class="number" ng-bind="'下单时间：'+item.createTime"></div>  
+        <div class="number" ng-bind="'订单详情：'+item.order_detail"></div>  
+        <div class="number" ng-bind="'快递公司：'+item.postCo" ng-show="item.status=='已邮寄'"></div>  
+        <div class="number" ng-bind="'快递单号：'+item.postNum" ng-show="item.status=='已邮寄'"></div>  
+    </div>
+    <!-- 预约功能先不做了 -->
+   <!--  <div class="right">
+      <a href="#/yuyue" ng-show="item.status=='未使用'&&usertype=='2'&&item.yuyue==false">点击预约></a>
+      <a href="#/yuyueFinished" ng-show="item.status=='未使用'&&usertype=='2'&&item.yuyue==true">已预约</a>
+    </div> -->
+  </div>
+</li>
+
+<script>
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+    $("#diyi").attr("class","active");
+</script>

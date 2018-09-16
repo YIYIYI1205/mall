@@ -1,0 +1,60 @@
+<!-- 分销的资料页面 -->
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">手机号</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="tel"></div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">店家名称</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="shop"></div>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">区域</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="area"></div>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">小区</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="xiaoqu"></div>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">分销级别</label>
+    </div>
+    <div class="weui-cell__bd">
+      <div class="weui-cell__bd" ng-bind="sailjibie"></div>
+    </div>
+  </div>
+  <!-- <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">邀请码</label>
+    </div>
+    <div class="weui-cell__bd">{{yaoqingma}}</div>
+  </div> -->
+</div>    
+<a href="#/change" class="weui-btn weui-btn_primary">修改</a>
+<div class="erweima" style="margin-top: 20px;">
+  <img ng-src="http://www.lexianglive.com:/{{mafile}}">
+  <div>(发展团队成员二维码)</div>
+</div>
+<script>
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+    $("#disan").attr("class","active");
+</script>

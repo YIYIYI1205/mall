@@ -1,0 +1,96 @@
+<!-- 供应商的供应页面 -->
+
+<!--  <li ng-repeat="item in items" class="list" ng-click="goto(item.number)">
+          <div class="top">
+            <div class="title">{{item.title}}</div>
+            <div class="status">{{item.status}}</div>
+          </div>
+          <div class="bottom">
+            <div class="recieve">收货人：{{item.recieve}}</div>
+            <div class="recievetel">手机号:{{item.recievetel}}</div>
+            <div class="time">使用时间：{{item.usestart}}-{{item.useend}}</div>
+            <div class="number">电子码：{{item.dingdannumber}}</div>  
+          </div>
+</li> -->
+<li class="list" ng-repeat="(key,item) in items">
+  <!-- 第一部分：标题：状态 -->
+    <div class="top" ng-click="goto(item.product_id,openid,usertype)">
+        <div class="title" ng-bind="item.title"></div>
+        <div class="status" style="color:#ccc;" ng-show="item.quanxian==undefined">
+          <div>无状态</div>    
+        </div>
+        <div class="status" style="color:red;" ng-show="item.quanxian==1">
+          <div>待审核</div>    
+        </div>
+        <div class="status" style="color:red;" ng-show="item.quanxian==2">
+            <div>审核不通过</div>
+        </div>
+        <div class="status" style="color:green;" ng-show="item.quanxian==3">
+            <div>供应商可见不带分销</div>
+        </div>
+         <div class="status" style="color:green;" ng-show="item.quanxian==4">
+            <div>商城不可见带分销</div>
+        </div>
+         <div class="status" style="color:green;" ng-show="item.quanxian==5">
+            <div>商城在售</div>
+        </div>
+         <div class="status" style="color:#ccc;" ng-show="item.quanxian==6">
+            <div>售罄</div>
+        </div>
+         <div class="status" style="color:#ccc;" ng-show="item.quanxian==7">
+            <div>销售过期未售完</div>
+        </div>
+
+    </div>
+    <!-- 第二部分：根据状态不同，显示不同的状态 -->
+    <div class="middle" style="margin:5px;">
+        <!-- 无状态 -->
+        <div class="button" ng-show="item.quanxian==undefined">
+          <a class="delete" ng-click="deleteProduct(item.product_id)">删除</a>   
+        </div>
+        <!-- 状态为1和2时 -->
+        <div class="button" ng-show="item.quanxian==1||item.quanxian==2">
+          <div class='button-three'>
+            <a class="delete" ng-click="deleteProduct(item.product_id)">删除</a>   
+            <a class="change" ng-click="change(item.product_id)">修改</a>   
+            <a class="pay" ng-click="pay(item.product_id)">付款</a>
+          </div>
+          <span>（审核需要审核费用，请付费）</span>
+        </div>
+        <!-- 当状态为3-7时 -->
+        <div class="button" ng-show="item.quanxian==3||item.quanxian==4||item.quanxian==5||item.quanxian==6||item.quanxian==7">
+          <a class="out" href="" ng-click="dianji(key,item.product_id)">导出订单</a>
+          <a id="a_new" ng-show="item.show" href="http://lexianglive.com:/{{url}}">下载文件</a>
+        </div>
+    </div>
+    <!-- 第三部分：价格详情  -->
+    <div style="border-top: 1px dashed #888" class="bottom">
+        <div> 
+          <div class="head">
+            <div>序号</div>
+            <div>名称</div>
+            <div>售价</div>
+            <div>成本</div>
+            <div>库存</div>
+            <div>销量</div>
+          </div>
+          <div class="content" ng-repeat="(key,item) in item.xifen">
+            <div ng-bind="key+1"></div> 
+            <div ng-bind="item.psummary"></div> 
+            <div ng-bind="item.sprice"></div>
+            <div ng-bind="item.cost"></div>
+            <div ng-bind="item.stock"></div>
+            <div ng-bind="item.sails"></div>
+          </div>
+    </div>
+</li>
+
+<script>
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+    $("#diyi").attr("class","active");
+
+</script>

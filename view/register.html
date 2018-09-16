@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="../common/css/jquery-weui.min.css">
+	<link rel="stylesheet" href="../common/css/weui.min.css">
+	<link rel="stylesheet" href="../css/register.css">
+  <link rel="stylesheet" href="../css/mobiscroll.scroller.css">
+  <link rel="stylesheet" href="../css/mobiscroll.scroller.android-ics.css">
+</head>
+<body>
+<div class="weui-cells weui-cells_form">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">手机号</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" placeholder="请输入手机号" id="tel" maxlength="15">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">区域</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input id="area" class="weui-input" placeholder="请选择区域" areaid="10086 10304">
+    </div>
+  </div>
+  <!-- 用户类型 -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+        <div class="weui-label">
+            <div class="publish-label-text">用户类型</div>
+        </div>
+    </div>
+    <div class="weui-cell__bd">
+      <input type="radio" name="usertype" value="1">分销人员
+      <input type="radio" name="usertype" value="3" checked>供应商
+    </div>
+  </div>
+  <div class="deletecompany">
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <label class="weui-label">公司名称</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="type" placeholder="没有公司请填写老板名字" id="company" maxlength="40">
+      </div>
+    </div>
+    <div class="weui-cell">  
+      <div class="weui-cell__hd">
+        <label class="weui-label">联系人姓名</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="type" placeholder="请填写联系人姓名" id="name" maxlength="32">
+      </div>
+     </div>
+    <div class="weui-cell"> 
+      <div class="weui-cell__hd">
+        <label class="weui-label">身份证号码</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="number" placeholder="请填写身份证号码" id="zhengjiannumber" maxlength="32">
+      </div>
+    </div>
+    <div style="margin: 10px 20px;color: #333;padding:5px;border: 1px solid #aaa;font-size: 12px;" id="tiaokuan">
+      <p>尊敬的用户感谢您选用乐享生活，分享快乐公众号分销商城，请您遵守国家相关法律法规，只允许发布合法的内容！发布非法内容者自负法律责任，软件服务开发商不承担责任！在中国和任何地区，都要遵循法律法规不允许复制和侵害软件知识产权，不允许违反互联网法规和国家相关法律发布违法信息，注册则认为已认同本法律声明和使用条款：</p>
+　　   <p>1、禁止使用软件发布国家严格禁止的、法律不允许的产品和商业活动，一经发现则停止软件使用权且报送公安机会处理（不予退货退款）；</p>
+      <p>2、请如实提供您的用户信息，这涉及到后期的软件使用权和所有权，包括后期售后服务支持；</p>   
+      <p>3、禁止发布假冒伪劣产品，欺骗消费者的产品，一经发现报送公安机关，并承担相应的法律责任。</p>
+    </div> 
+    <div style="margin: 10px;">
+      我已阅读《注册供应商法律声明》<input type="radio" name="shengming" value="true" id="tongyi">
+    </div>   
+  </div>   
+  <div class="weui-cell shop"></div>
+  <div class="weui-cell deletexiaoqu"></div>
+  <!-- <div class="weui-cell name"></div> -->
+  <div class="add"></div>
+</div>
+    <!-- <div class="weui-cell__hd">
+      <label class="weui-label">店家名称</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="type" placeholder="请输入店家名称" id="shop">
+    </div> -->
+ 
+   
+    <!-- <div class="weui-cell__hd">
+      <label class="weui-label">小区</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="type" placeholder="请输入小区名称" id="xiaoqu">
+    </div> -->
+    
+     <!--  <div class="weui-cell__hd">
+        <label class="weui-label">联系人姓名</label>
+      </div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="type" placeholder="请填写联系人姓名" id="name">
+      </div> -->
+  
+ <!--  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">邀请码</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="type" placeholder="请输入邀请码" id="yaoqingma">
+    </div>
+  </div>
+  <div class="btn">
+      <div class="tishi">若没有邀请码，请支付88元成为分销人员</div>
+      <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="zhifu">支付</a>
+      </div>  
+  </div> --> 
+ <!-- 提交按钮  -->
+<div class="weui-btn-area">
+     <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">提交</a>
+</div>
+<script src="../common/js/angularjs.js"></script>
+<script src="../common/js/jquery-2.1.4.js"></script>
+<script src="../common/js/jquery-weui.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="../js/register.js"></script>
+<script src="../js/zepto.js"></script>
+<script src="../js/mobiscroll.zepto.js"></script>
+<script src="../js/mobiscroll.core.js"></script>
+<script src="../js/mobiscroll.scroller.js"></script>
+<script src="../js/mobiscroll.area.js"></script>
+<script src="../js/mobiscroll.scroller.android-ics.js"></script>
+<script src="../js/i18n/mobiscroll.i18n.zh.js"></script>
+<script>
+  var valo = $("#area").attr("areaid");
+  $('#area').scroller('destroy').scroller({ preset: 'area', theme: 'android-ics light', display: 'bottom',valueo:valo });
+</script>	
+  <script>
+            var ua = navigator.userAgent.toLowerCase();
+            var isWeixin = ua.indexOf('micromessenger') != -1;
+            var isAndroid = ua.indexOf('android') != -1;
+            var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+            if (!isWeixin) {
+                document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+            }   
+  </script>
+</body>
+</html>

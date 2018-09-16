@@ -1,0 +1,43 @@
+<!-- 供应商的验证页面 --> 
+<div>请输入电子验证码</div>
+<textarea style="font-size: 25px;" cols="30" id="#yanzhengma" ng-model="yanzhengma"></textarea>
+<div class="weui-btn-area" style="padding-top: 5px;">
+     <a class="weui-btn weui-btn_primary" href="" ng-click="submit()" id="submit">提交</a>
+</div>
+<div class="success" ng-show="right">
+	<div class="weui-cells">
+  		<div class="weui-cell">
+    		<div class="weui-cell__hd">
+      			<label class="weui-label">商品名称</label>
+    		</div>
+    		<div class="weui-cell__bd" ng-bind="title"></div>
+  		</div>
+	 	<div class="weui-cell">
+	    	<div class="weui-cell__hd">
+	      		<label class="weui-label">手机号</label>
+	    	</div>
+	    	<div class="weui-cell__bd" ng-bind="tel"></div>
+	  	</div>
+	  	<div class="weui-cell">
+	    	<div class="weui-cell__hd">
+	      		<label class="weui-label">联系人姓名</label>
+	    	</div>
+	    	<div class="weui-cell__bd" ng-bind="namebuy"></div>
+	  	</div>
+	  	<div class="weui-cell">
+	    	<div class="weui-cell__hd">
+	      		<label class="weui-label">订单详情</label>
+	    	</div>
+	    	<div class="weui-cell__bd" ng-bind="order_detail"></div>
+		</div>
+ 	</div>
+	<!-- <a href="" class="weui-btn weui-btn_primary" style="margin-top: 20px;" ng-click="use()">使用</a> -->
+</div>
+<script>
+	$(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+    $("#dier").attr("class","active");
+</script>

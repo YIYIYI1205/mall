@@ -1,0 +1,90 @@
+<!-- 首页 -->
+<!-- 用户进入首页以后，就由后台向前端传来openid和usertype，之后每次跳转任何页面，都需要带着这两个参数 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>首页</title>
+	<link rel="stylesheet" href="../common/css/jquery-weui.min.css">
+	<link rel="stylesheet" href="../common/css/weui.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+</head>
+<body ng-app="app">
+<div class="container" ng-controller="controller">
+	 <!-- 搜索栏 -->
+  <div class="search">
+    <div class="weui-search-bar" id="searchBar">
+        <form class="weui-search-bar__form">
+          <div class="weui-search-bar__box">
+              <i class="weui-icon-search"></i>
+              <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="" ng-keyup="searchMethod($event)" ng-model="search">
+              <a href="javascript:" class="weui-icon-clear" id="searchClear" ng-click="cancel()"></a>
+          </div>
+          <label class="weui-search-bar__label" id="searchText">
+              <i class="weui-icon-search"></i>
+              <span>搜索</span>
+          </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" ng-click="cancel()">取消</a>
+    </div>
+  </div>
+  <!-- 列表 -->
+  <div class="content">
+    <ul class="itmes">
+      <!-- 点击一个具体的商品，要进行跳转页面，带的参数是该产品的product_id，微信用户的openid，还有用户类型usertype -->
+      <li class="item" ng-repeat="(key,item) in itmes" ng-click="goto(item.product_id,openid,usertype)">
+        <div class="item-left">
+          <!-- 一定要在地址后面加：/ -->
+          <img ng-src="http://www.lexianglive.com:/{{item.card}}" style="width: 70px;height: 70px;">
+        </div>
+        <div class="item-right">
+          <span class="summary" ng-bind="item.title"></span>
+          <div class="second">
+            <span class="money" ng-bind="item.sprice|currency:'¥'"></span>
+            <span class="origin" ng-bind='item.price|currency:"¥"'></span>
+            <span class="sale" ng-bind="'已售：'+item.sails"></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+	<!-- tab栏 -->
+	<div class="weui-tabbar">
+    <a class="weui-tabbar__item weui-bar__item--on" ng-click="index(openid,usertype)">
+      <div class="weui-tabbar__icon">
+        <img src="../images/index-sel.png">
+      </div>
+      <p class="weui-tabbar__label">抢购</p>
+    </a>
+    <!-- <a class="weui-tabbar__item" ng-click="mall(openid,usertype)">
+      <div class="weui-tabbar__icon">
+        <img src="../images/publish.png">
+      </div>
+      <p class="weui-tabbar__label">快乐商城</p>
+    </a> -->
+    <a class="weui-tabbar__item" ng-click="my(openid,usertype)">
+      <div class="weui-tabbar__icon">
+        <img src="../images/my.png">
+      </div>
+      <p class="weui-tabbar__label">我的</p>
+    </a>
+  </div>
+</div>
+	<script src="../common/js/jquery-2.1.4.js"></script>
+	<script src="../common/js/jquery-weui.min.js"></script>
+  <script src="../common/js/angularjs.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="../js/index.js"></script>	
+  <script>
+            var ua = navigator.userAgent.toLowerCase();
+            var isWeixin = ua.indexOf('micromessenger') != -1;
+            var isAndroid = ua.indexOf('android') != -1;
+            var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+            if (!isWeixin) {
+                document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+            }   
+  </script>
+</body>
+</html>

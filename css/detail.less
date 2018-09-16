@@ -1,0 +1,135 @@
+html{
+	height: 100%;
+}
+body{
+	background: #eee;
+	height: 100%;
+}
+.tab{
+	background: #fff;
+	width: 100%;
+	padding: 10px 0;
+	display: flex;
+	a{
+		text-align: center;	
+		flex:1;
+		text-decoration: none;
+		color: #000;
+		&:hover{
+			color: orange;
+		}
+	}
+}
+a.current{
+	color: orange;
+}
+.image{
+	width: 100%;
+}
+.summary{
+	margin: 10px 0;
+	padding:10px;
+	background: #fff;
+}
+.message{
+	background: #fff;
+	padding-left: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;	
+	border-bottom: 1px solid #eee;
+	.title{
+		margin:10px 0;
+		background: #fff;
+	}
+	.top-price{
+		border-top: 1px solid #eee;
+		display: flex;
+		align-items:center;
+		.psummary{
+			flex:1;
+		}
+		.price{
+			flex:1;
+			font-size: 28px;
+			color: orange;
+		}
+		.origin{
+			flex:1;
+			color: #aaa;
+		}
+	}
+}
+.list{
+	padding:10px 10px;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+}
+.footer{
+	background: #fff;
+	width: 100%;
+	margin-top:10px;
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #eee;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	a{
+		color: #000;
+		text-decoration: none;
+		padding: 10px 0;
+		flex:1;
+		margin: 0 1px;
+	}
+	.share,.buy{
+		background: orange;
+		color: #fff;
+		
+	}
+}
+.buy{
+	padding:10px 10px;
+	background: #fff;
+	border-top: 1px solid #eee;
+	.buy-title{
+		padding-bottom: 5px;
+		border-bottom: 1px solid #eee;
+	}
+	.buy-detail{
+		padding: 5px 0px;
+	}
+}
+.detailsummary{
+	margin: 10px 0;
+	padding:10px 10px;
+	background: #fff;
+	.list-title{
+		padding-bottom: 5px;
+		border-bottom: 1px solid #eee;
+	}
+}
+.detailImages{
+	margin: 20px 0;
+	padding:10px 10px;
+	background: #fff;
+	margin-bottom: 40px;
+	.list-title{
+		padding-bottom: 5px;
+		border-bottom: 1px solid #eee;
+	}
+	.image-detail{
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+		img{
+			margin: 10px 0;
+			height: 210px;
+			width: auto;
+		}
+	}
+}

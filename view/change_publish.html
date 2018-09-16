@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>修改</title>
+	<link rel="stylesheet" href="../common/css/jquery-weui.min.css">
+	<link rel="stylesheet" href="../common/css/weui.min.css">
+	<link rel="stylesheet" href="../css/publish.css">
+</head>
+<body ng-app="app">
+<!-- 文字部分 -->
+<div class="weui-cells weui-cells_form" ng-controller="controller">
+  <!-- <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div class="weui-cell__hd">
+      <div class="weui-label">
+        <div class="publish-label-text">类别</div>
+      </div>
+    </div>
+    <div class="weui-cell__bd">
+      <select class="weui-select" id="leibie-select" name="select2">
+        <option value="供应商" id="x11" selected>景点</option>
+        <option value="分销人员" id="x12">线路</option>
+        <option value="设计人员" id="x13">吃饭</option>
+        <option value="设计人员" id="x14">娱乐</option>
+        <option value="设计人员" id="x15">亲子</option>
+        <option value="设计人员" id="x16">拓展</option>
+        <option value="设计人员" id="x17">场地</option>
+        <option value="设计人员" id="x18">其他</option>
+      </select>
+    </div>
+  </div>   -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+    	<label class="weui-label">商品名称</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="type" ng-model="title" id="title">
+    </div>
+  </div>
+  <!-- 开始日期 -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">活动开始日期</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="date" id="timestart" ng-model="timestart">
+    </div>
+  </div>
+  <!-- 结束日期 -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">活动结束日期</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="date" id="timeend" ng-model="timeend">
+    </div>
+  </div>
+  <!-- 使用起始时间 -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">使用起始日期</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="date" id="usestart" ng-model="usestart">
+    </div>
+  </div>
+  <!-- 使用截止日期 -->
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">使用截止日期</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="date" id="useend" ng-model="useend">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">地址</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="type" ng-model="address" id="address">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">客服联系方式</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="tel" ng-model="contact" id="contact">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">交货方式</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input type="radio" name="youji" value="1">邮寄
+      <input type="radio" name="youji" value="0" checked>电子兑换码
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">购买选择日期</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input type="radio" name="shiyong" value="1">是
+      <input type="radio" name="shiyong" value="0" checked>否
+    </div>
+  </div>
+  <div class="weui-cells__title">预定须知</div>
+  <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" rows="3" id="buy" ng-model="buy"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells__title">商品简要描述</div>
+  <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" rows="3" id="summary" ng-model="summary"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells__title">商品详细描述</div>
+  <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" rows="5" id="detailsummary" ng-model="detailsummary"></textarea>
+      </div>
+    </div>
+  </div>
+  <!-- 图片预览 -->
+  <div class="weui-gallery" id="gallery">  
+    <span class="weui-gallery__img" id="galleryImg"></span>  
+    <div class="weui-gallery__opr">  
+      <a href="javascript:" class="weui-gallery__del">  
+        <i class="weui-icon-delete weui-icon_gallery-delete" id="i"></i>  
+      </a>  
+    </div>  
+  </div>
+  <!-- 图片上传 -->
+  <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <!-- 上传图片 -->
+          <div class="weui-uploader">
+            <div class="weui-uploader__hd">
+              <p class="weui-uploader__title">商品图片(若要修改请删除所有图片)</p>
+              <button id="delete" style="margin-right: 20px;">删除</button>
+            </div>
+            <div class="weui-uploader__bd">
+              <ul class="weui-uploader__files" id="uploaderFiles">
+                <!-- <li ng-repeat="(key,item) in imgs" class="weui-uploader__file" style="background-image:url(http://www.lexianglive.com:/{{item}})">
+                </li>  -->   
+              </ul>
+              <div class="weui-uploader__input-box" id="weui-uploader__input-box">
+                <input id="uploaderInput" class="weui-uploader__input zjxfjs_file" type="file" accept="image/*" multiple="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- 海报预览 -->
+  <div class="weui-gallery" id="galleryhaibao">  
+    <span class="weui-gallery__img" id="galleryhaibaoImg"></span>        
+      <div class="weui-gallery__opr">  
+        <a href="javascript:" class="weui-gallery__del">  
+          <i class="weui-icon-delete weui-icon_gallery-delete" id="i_haibao"></i>  
+        </a>  
+      </div>  
+  </div>
+  <!-- 海报上传 -->
+  <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <!-- 上传图片 -->
+          <div class="weui-uploader">
+            <div class="weui-uploader__hd">
+              <p class="weui-uploader__title">海报图片(若要修改请删除所有图)</p>
+              <button id="delete_haibao" style="margin-right: 20px;">删除</button>
+            </div>
+            <div class="weui-uploader__bd">
+              <ul class="weui-uploader__files" id="uploaderhaibaoFiles">    
+              </ul>
+              <div class="weui-uploader__input-box" id="weui-uploader__input-box_haibao">
+                <input id="uploaderhaibaoInput" class="weui-uploader__input haibao_file" type="file" accept="image/*" multiple="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- 上传视频 -->
+  <!-- <div class="camera-area" style="padding: 5px 5px 2px 17px; margin-top: 0px">
+    <form enctype="multipart/form-data" method="post">
+      <a href="javascript:;" class="a-upload"> 
+        <input name="fileToUpload" class="fileToUpload" type="file" accept="video/*" capture="camcorder">上传视频
+      </a> 
+      <span id="fileName" style="font-size: 18px"></span>
+      <div class="weui-progress">
+        <div class="weui-progress__bar">
+          <div id="qin_progress" class="weui-progress__inner-bar js_progress" style="width: 0%;"></div>
+        </div>
+        <a href="javascript:;" class="weui-progress__opr"> 
+          <i class="weui-icon-cancel"></i>
+        </a>
+      </div>
+    </form>
+    <div class="thumb"></div>
+  </div> -->
+  <!-- 添加按钮 -->
+  <div class="weui-btn-area" style="padding-bottom: 10px;">
+    <button id="btn" class="weui-btn weui-btn_primary">添加价格</button>
+  </div>
+  <!-- 添加细分 -->
+  <div id="xifen">
+    <div class="xifenList" ng-repeat="(key,item) in xifen">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">名称{{key+1}}</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="type" ng-model="item.psummary">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">商品原价</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" ng-model="item.price">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">商品现价</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" ng-model="item.sprice">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">供货价格</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" ng-model="item.cost">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">库存</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" ng-model="item.stock">
+        </div>
+        <button class="delete" ng-click="delete(key)" id="delete">删除价格</button>
+      </div>
+    </div>
+  </div>
+  <!-- 提交按钮  -->
+  <div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">提交审核</a>
+  </div> 
+	<!-- tab栏 -->
+  <div>
+    <div class="weui-tabbar">
+      <a class="weui-tabbar__item weui-bar__item--on" ng-click="publish(openid,usertype)">
+        <div class="weui-tabbar__icon">
+          <img src="../images/publish-sel.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">修改</p>
+      </a>
+      <a class="weui-tabbar__item" ng-click="my(openid,usertype)">
+        <div class="weui-tabbar__icon">
+          <img src="../images/my.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+      </a>
+    </div>
+  </div> 
+</div>
+<script src="../common/js/angularjs.js"></script>
+<script src="../common/js/jquery-2.1.4.js"></script>
+<script src="../common/js/jquery-weui.min.js"></script>
+<script src="../common/js/zepto.min.js"></script>
+<!-- 引入上传视频的js -->
+<script src="../js/upload.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="../js/change_publish.js"></script>
+  <script>
+            var ua = navigator.userAgent.toLowerCase();
+            var isWeixin = ua.indexOf('micromessenger') != -1;
+            var isAndroid = ua.indexOf('android') != -1;
+            var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+            if (!isWeixin) {
+                document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+            }   
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!-- 我的页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>我的</title>
+	<link rel="stylesheet" href="../common/css/jquery-weui.min.css">
+	<link rel="stylesheet" href="../common/css/weui.min.css">
+	<link rel="stylesheet" href="../css/my.css">
+  <link rel="stylesheet" href="../css/mobiscroll.scroller.css">
+  <link rel="stylesheet" href="../css/mobiscroll.scroller.android-ics.css">
+  <style>
+    .fontcolor{
+      color:#eee;
+    }
+  </style>
+</head>
+<body ng-app="app">
+  <div class="contain" ng-controller="myController">
+    <!-- 这是用户信息和头像 -->
+    <div class="message">
+      <!-- <div class="icon">
+        <img ng-src="{{icon}}" >
+      </div> -->
+      <div class="name" ng-bind="'分销ID：'+openid" ng-show="usertype==1"></div>
+      <div class="name" ng-bind="'用户ID：'+openid" ng-show="usertype==2"></div>
+    </div>
+    <!-- 这是用户页面 -->
+    <div class="usepage" ng-if="id=='2'">
+      <div class="type">
+        <div><a href="#/all" class="active">全部订单</a></div>
+        <!-- 收藏先不做 -->
+        <!-- <div><a href="#/collect">收藏</a></div> -->
+      </div>
+      <div class="lists">
+        <ul ng-view>
+        </ul>
+      </div>
+    </div>
+    <!-- 这是分销页面 -->
+    <div class="fenxiao" ng-if="id=='1'">
+      <div class="type">
+        <div><a href="#/all" class="active" id="diyi">全部订单</a></div>
+        <!-- 收藏先不做 -->
+        <!-- <div><a href="#/collect">收藏</a></div> -->
+        <div><a href="#/gain" id="disi">收益</a></div>
+        <div><a href="#/message" id="disan">资料</a></div>
+      </div>
+      <div class="lists">
+        <ul ng-view>
+        </ul>
+      </div>
+    </div>
+          
+    <!-- tab栏 -->
+    <div class="weui-tabbar">
+      <a class="weui-tabbar__item" ng-click="index(openid,usertype)">
+        <div class="weui-tabbar__icon">
+          <img src="../images/index.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">抢购</p>
+      </a>
+      <!-- <a class="weui-tabbar__item" ng-click="mall(400005,2)">
+        <div class="weui-tabbar__icon">
+          <img src="../images/publish.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">快乐商城</p>
+      </a> -->
+      <a class="weui-tabbar__item weui-bar__item--on" ng-click="my(openid,usertype)">
+        <div class="weui-tabbar__icon">
+          <img src="../images/my-sel.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+      </a>
+    </div>
+  </div>   
+	
+  <script src="../common/js/jquery-2.1.4.js"></script>
+  <script src="../common/js/jquery-weui.min.js"></script>
+  <script src="../common/js/angularjs.js"></script>
+  <script src="../common/js/angular-route.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="../js/my.js"></script> 
+  <script>
+    $(".type div a").on("click",function(){
+      $(".type div a").attr("class","");
+      $(this).attr("class","active");
+    });
+  </script>
+  <script>
+            var ua = navigator.userAgent.toLowerCase();
+            var isWeixin = ua.indexOf('micromessenger') != -1;
+            var isAndroid = ua.indexOf('android') != -1;
+            var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+            if (!isWeixin) {
+                document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+            }   
+  </script>
+</body>
+</html>

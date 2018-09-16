@@ -1,0 +1,66 @@
+<!-- 订单详情页面 -->
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">订单详情</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="order_detail"></div> 
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">下单时间</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="xiadanTime"></div> 
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">收货人</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="recieve"></div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">手机号</label>
+    </div>
+    <div class="weui-cell__bd" ng-bind="recievetel"></div>
+  </div>
+  <!-- <div class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">使用时间</label>
+    </div>
+    <div class="weui-cell__bd">{{usestart}}-{{useend}}</div>
+  </div> -->
+  <!-- <div class="weui-cell" ng-show="isnumber">
+    <div class="weui-cell__hd">
+      <label class="weui-label">电子码</label>
+    </div>
+    <div class="weui-cell__bd">{{number}}</div>
+  </div> -->
+  <div>
+	  <div class="weui-cell" ng-show="order_status=='需邮寄'||order_status=='已处理'">
+	    <div class="weui-cell__hd">
+	      <label class="weui-label">收货地址</label>
+	    </div>
+	    <div class="weui-cell__bd" ng-bind="recieveAddress"></div>
+	  </div>
+	  <div class="weui-cell" ng-show="order_status=='需邮寄'||order_status=='已处理'">
+	    <div class="weui-cell__hd">
+	      <label class="weui-label">快递公司</label>
+	    </div>
+	    <div class="weui-cell__bd" ng-bind="kuaidiCompany"></div>
+	  </div>
+	  <div class="weui-cell" ng-show="order_status=='需邮寄'||order_status=='已处理'">
+	    <div class="weui-cell__hd">
+	      <label class="weui-label">快递单号</label>
+	    </div>
+	    <div class="weui-cell__bd" ng-bind="kuaidiNumber"></div>
+	  </div>
+   </div>
+</div>
+<a class="weui-btn weui-btn_primary" ng-click="goto(order_id,openid,usertype)" ng-show="order_status=='需邮寄'||order_status=='已处理'">填写邮寄信息</a>
+<script>
+
+    $(".type div a").attr("class","");
+    $("#disan").attr("class","active");
+  
+</script>

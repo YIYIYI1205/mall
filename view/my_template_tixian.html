@@ -1,0 +1,41 @@
+<!-- 提现页面 -->
+<div class="weui-cells weui-cells_form">
+	<div class="weui-cell">
+    	<div class="weui-cell__hd">
+    		<label class="weui-label">提现金额</label>
+    	</div>
+    	<div class="weui-cell__bd">
+      		<input class="weui-input" type="number" placeholder="不得少于20元" id="timo" ng-model="timo">
+    	</div>
+  	</div>
+  	<div class="weui-cell">
+    	<div class="weui-cell__hd">
+      		<label class="weui-label">提现类型</label>
+    	</div>
+    	<div class="weui-cell__bd">
+    		<input type="radio" name="utype" ng-value="0" ng-click="change()" ng-model="utype">支付宝
+      		<input type="radio" name="utype" ng-value="1" ng-click="change()" ng-model="utype">微信
+    	</div>
+  	</div>
+  	<div class="weui-cell" ng-show="zhifubao">
+    	<div class="weui-cell__hd">
+    		<label class="weui-label">支付宝名称</label>
+    	</div>
+    	<div class="weui-cell__bd">
+      		<input class="weui-input" type="type" placeholder="请输入支付宝名称" id="name" ng-model="name">
+    	</div>
+  	</div>
+  	<div class="weui-cell" ng-show="zhifubao">
+    	<div class="weui-cell__hd">
+    		<label class="weui-label">支付宝账号</label>
+    	</div>
+    	<div class="weui-cell__bd">
+      		<input class="weui-input" type="number" placeholder="请输入支付宝账户" id="zhang" ng-model="zhang">
+    	</div>
+  	</div>
+  	<div style="color: red;margin: 0 10px;">(若选择微信提现，请加微信号：290815201，提现成功后将提现ID发给微信号即可)</div>
+</div>  	
+<div class="weui-btn-area">
+     <button class="weui-btn weui-btn_primary" ng-click="submit()" ng-show="lvse">提现</button>
+     <button class="weui-btn weui-btn_primary" style="background: #888;" ng-show="huise">提现</button>
+</div>

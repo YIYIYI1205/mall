@@ -1,0 +1,1127 @@
+<!-- 详情页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>详情页面</title>
+    <link rel="stylesheet" href="../common/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../common/css/weui.min.css">
+    <link rel="stylesheet" href="../common/css/swiper.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/detail.css">
+</head>
+<body ng-app="app">
+    <div ng-controller="controller">
+        <!-- 轮播图 -->
+        <!-- 一张图 -->
+        <div ng-if="len==1">
+            <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;" ng-click="image(0)">
+        </div>
+        <!-- 两张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==2">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner" >
+                <div class="item active">
+                    <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;" ng-click="image(0)">
+                </div>
+                <div class="item">
+                    <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;" ng-click="image(1)">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 三张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==3">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;" ng-click="image(0)">
+                </div>
+                <div class="item">
+                    <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;" ng-click="image(1)">
+                </div>
+                <div class="item">
+                    <img class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;" ng-click="image(2)">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 四张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==4">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 五张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==5">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 六张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==6">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 七张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==7">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 八张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==8">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 九张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==9">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        <!-- 十张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==10">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十一张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==11">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十二张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==12">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十三张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==13">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十四张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==14">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十五张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==15">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十六张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==16">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(15)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[15]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十七张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==17">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(15)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[15]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(16)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[16]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十八张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==18">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(15)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[15]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(16)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[16]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(17)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[17]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 十九张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==19">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(15)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[15]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(16)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[16]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(17)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[17]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(18)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[18]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 二十张图 -->
+        <div id="myCarousel" class="carousel slide" ng-if="len==20">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img ng-click="image(0)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[0]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(1)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[1]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(2)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[2]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(3)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[3]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(4)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[4]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(5)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[5]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(6)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[6]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(7)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[7]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(8)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[8]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(9)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[9]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(10)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[10]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(11)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[11]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(12)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[12]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(13)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[13]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(14)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[14]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(15)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[15]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(16)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[16]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(17)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[17]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(18)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[18]}}" style="height: 200px;width: 100%;">
+                </div>
+                <div class="item">
+                    <img ng-click="image(19)" class="image" ng-src="http://www.lexianglive.com:/{{imgs[19]}}" style="height: 200px;width: 100%;">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="summary">
+            <div class="list-detail" ng-bind="summary"></div>
+        </div>
+        <div class="message">
+            <div class="title" ng-bind="'商品名称：'+title">
+            </div>
+            <div class="top-price">
+                    <!-- <div class="psummary" ng-bind="psummary"></div> -->
+                    <span class="price" ng-bind="price|currency:'¥'"></span>
+                    <!-- <del class="origin" ng-bind="'原价：'+origin|currency:'¥'"></del> -->
+                    <del class="origin" ng-bind="origin|currency:'¥'"></del>
+                    <div class="list-detail" ng-bind="'销量：'+sails" style="margin-right: 10px;"></div>
+            </div>
+        </div>
+        <!-- 返利 -->
+        <div ng-repeat="item in xifen" class="list" ng-show="ifxifen&&usertype==1">
+            <div class="list-title" ng-bind="item.psummary"></div>
+            <div class="list-detail" ng-bind="'分销返利：'+item.agentprice+'元'" style="color: red;"></div>
+        </div>  
+        <div class="list">
+            <div class="list-title">地址：</div>
+            <div class="list-detail" ng-bind="address"></div>
+        </div>
+        <!-- <div class="list">
+            <div class="list-title">库存</div>
+            <div class="list-detail" ng-bind="save"></div>
+        </div>   -->
+        <div class="list">
+            <div class="list-title">活动时间：</div>
+            <div class="list-detail" ng-bind="timestart+'至'+timeend"></div>
+        </div>
+        <div class="list">
+            <div class="list-title">使用时间：</div>
+            <div class="list-detail" ng-bind="usestart+'至'+useend"></div>
+        </div>
+        <div class="list">
+            <div class="list-title">联系电话：</div>
+            <div class="list-detail" ng-bind="contact"></div>
+        </div>
+        <div ng-repeat="item in xifen" class="list" ng-show="ifxifen">
+            <div class="list-title" ng-bind="item.psummary+'：'"></div>
+            <div class="list-detail" ng-bind="item.sprice|currency:'¥'"></div>
+            <del class="list-detail" style="color: #333;" ng-bind="item.price|currency:'¥'"></del>
+            <div class="list-detail" ng-bind="'库存：'+item.stock"></div>
+            
+        </div>
+        <div class="buy">
+            <div class="buy-title" style="color: red;">购买须知：</div>
+            <div class="buy-detail" ng-bind="buy"></div>
+        </div>
+        <div class="detailsummary">
+            <div class="list-title" style="color: red;">详情介绍：</div>
+            <div class="list-detail" ng-bind="detailsummary"></div>
+        </div>
+        <div class="detailImages">
+            <div class="list-title">图片详情</div>
+            <div class="image-detail" ng-repeat="(key,img) in imgs">
+                <img ng-src="http://www.lexianglive.com:/{{img}}" class="tupianxiangqing" ng-click="image(key)">
+            </div>
+        </div>
+
+        <div class="footer" ng-show="showpa==1">
+        <!-- <div class="footer"> -->
+            <!-- <a href="#" classs="collect">收藏</a> -->
+            <!-- <a href="#" class="share" ng-click="share()">分享</a> -->
+            <a href="#" class="share" id="share">分享</a>
+            <a href="#" class="buy" ng-click="goto()">立即购买</a>
+        </div>
+        <div class="footer" ng-show="showpa==2">
+        <!-- <div class="footer"> -->
+            <!-- <a href="#" classs="collect">收藏</a> -->
+            <!-- <a href="#" class="share" ng-click="share()">分享</a> -->
+            <a href="#" class="share" id="share">分享</a>
+        </div>
+        <!-- 海报展示 -->
+        <!-- <div class="weui-gallery" id="gallery" style="display: block;" ng-show="haibaoShow">  
+            <span class="weui-gallery__img" id="galleryImg" style="background-image: url(http://www.lexianglive.com/{{haibao}});" ng-click="hide()"></span>  
+        </div> -->
+        <!-- <div class="weui-gallery" id="gallery" style="display: block;">  
+            <span class="weui-gallery__img" id="galleryImg" style="background-image: url(../images/loading.jpg);" ng-click="hide()"></span>  
+        </div> -->
+    </div>
+    <script src="../common/js/jquery-2.1.4.js"></script>
+    <script src="../common/js/jquery-weui.min.js"></script>
+    <script src="../common/js/angularjs.js"></script>
+    <script src="../common/js/swiper.min.js"></script>
+    <script src="../common/js/bootstrap.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/detail.js"></script>
+   <!--  <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+    // direction: 'vertical',
+    loop: true,
+    
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    
+    // 如果需要前进后退按钮
+    // nextButton: '.swiper-button-next',
+    // prevButton: '.swiper-button-prev',
+    
+    // 如果需要滚动条
+    scrollbar: '.swiper-scrollbar',
+  })  
+    </script> -->
+    <script>
+  $(function(){ 
+    var url =location.search;
+    var theRequest = new Object();
+    // 有问号代表有参数
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);//获取中文参数转码<span style="font-family: Arial,     Helvetica, sans-serif;">decodeURI</span>，（unescape只针对数字，中文乱码)
+        }
+    }
+    // 获取展示二维码图片
+    $.ajax({
+            url:"http://lexianglive.com/users/getma2?product_id="+message+'&openid='+openid+'&usertype='+usertype,
+            method:"get",
+            params:{
+                product_id:theRequest.msg,
+                openid:theRequest.openid,
+                usertype:theRequest.usertype
+            }
+        }).success(function(resResult){
+            // console.log(resResult); 
+            var haibao=$.parseJSON(resResult).result;
+            // console.log('http://www.lexianglive.com/'+haibao);
+            var pb = $.photoBrowser({
+                // 这里items后面要加[]，不加就报错
+                items: ['http://www.lexianglive.com/'+haibao],
+                onOpen: function() {},
+                onClose: function() {}
+            });
+            $(".share").click(function(){
+                pb.open();
+
+            }) 
+        }) 
+    });  
+
+    function imgShow(outerdiv, innerdiv, bigimg, _this){  
+        var src = _this.attr("src");//获取当前点击的pimg元素中的src属性  
+        $(bigimg).attr("src", src);//设置#bigimg元素的src属性  
+      
+            /*获取当前点击图片的真实大小，并显示弹出层及大图*/  
+        $("<img/>").attr("src", src).load(function(){  
+            var windowW = $(window).width();//获取当前窗口宽度  
+            var windowH = $(window).height();//获取当前窗口高度  
+            var realWidth = this.width;//获取图片真实宽度  
+            var realHeight = this.height;//获取图片真实高度  
+            var imgWidth, imgHeight;  
+            var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放  
+              
+            if(realHeight>windowH*scale) {//判断图片高度  
+                imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放  
+                imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度  
+                if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度  
+                    imgWidth = windowW*scale;//再对宽度进行缩放  
+                }  
+            } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度  
+                imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放  
+                            imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度  
+            } else {//如果图片真实高度和宽度都符合要求，高宽不变  
+                imgWidth = realWidth;  
+                imgHeight = realHeight;  
+            }  
+                    $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放  
+              
+            var w = (windowW-imgWidth)/2;//计算图片与窗口左边距  
+            var h = (windowH-imgHeight)/2;//计算图片与窗口上边距  
+            $(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性  
+            $(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg  
+        });  
+          
+        $(outerdiv).click(function(){//再次点击淡出消失弹出层  
+            $(this).fadeOut("fast");  
+        });  
+    }       
+    </script>
+    <script>
+            var ua = navigator.userAgent.toLowerCase();
+            var isWeixin = ua.indexOf('micromessenger') != -1;
+            var isAndroid = ua.indexOf('android') != -1;
+            var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+            if (!isWeixin) {
+                document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+            }   
+    </script>
+</body>
+</html>

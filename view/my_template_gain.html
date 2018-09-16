@@ -1,0 +1,57 @@
+<!-- 分销的收益页面 -->
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <p>可提现</p>
+    </div>
+    <div class="weui-cell__ft middle" ng-bind="tixian+'元'"></div>
+  <a href="#/tixian" class="weui-btn weui-btn_primary" ng-show="nengtixian">提现</a>
+  <a href="#/gain" class="weui-btn weui-btn_primary" ng-show="bunengtixian" style="background: #888;">提现</a>
+	<!-- <a href="#/tixian" class="weui-btn weui-btn_primary">提现</a> -->
+  </div>
+</div>
+<div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <p>已提现</p>
+    </div>
+    <div class="weui-cell__ft middle" ng-bind="tixianed+'元'"></div>
+    <a href="#/jilu" class="weui-btn weui-btn_primary">记录</a>
+  </div>
+</div>
+<div class="weui-cells" ng-show="usertype==3">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <p>账户资金</p>
+    </div>
+    <div class="weui-cell__ft middlemore" ng-bind="me+'元'"></div>
+  </div>
+</div>
+<div class="weui-cells" ng-show="usertype==1">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <p>直卖收益</p>
+    </div>
+    <div class="weui-cell__ft middlemore" ng-bind="directGain+'元'"></div>
+  </div>
+</div>
+<div class="weui-cells" ng-show="usertype==1">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <p>团队收益</p>
+    </div>
+    <div class="weui-cell__ft middle" ng-bind="groupGain+'元'"></div>
+    <a href="#/detail" class="weui-btn weui-btn_primary">详情</a>
+  </div>
+</div>
+<div style="color: red;margin-left: 10px;">(不满20元不能提现)</div>
+<div style="color: red;margin-left: 10px;" ng-show="usertype==3">(客户未消费资金不能提)</div>
+<script>
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+  $(".type div a").attr("class","");
+
+    $("#disi").attr("class","active");
+</script>

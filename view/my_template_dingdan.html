@@ -1,0 +1,114 @@
+ <!-- 供应商的订单页面 -->
+ <!-- 搜索栏 -->
+  <div class="search">
+    <div class="weui-search-bar" id="searchBar">
+        <form class="weui-search-bar__form">
+          <div class="weui-search-bar__box">
+              <i class="weui-icon-search"></i>
+              <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索手机号" required="" ng-keyup="searchMethod($event)" ng-model="search">
+              <a href="javascript:" class="weui-icon-clear" id="searchClear" ng-click="cancel()"></a>
+          </div>
+          <label class="weui-search-bar__label" id="searchText">
+              <i class="weui-icon-search"></i>
+              <span>搜索</span>
+          </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" ng-click="cancel()">取消</a>
+    </div>
+  </div>
+
+<li ng-repeat="item in items" class="a_list">
+  <!-- 这个a标签跳转得带参数跳转，应该跳转到点击的这个订单的具体信息上 -->
+  <a ng-click="goto(item.order_id,openid,usertype)">
+    <div class="top">
+      <div class="title" ng-bind="item.title"></div>
+      <div class="status" style="color:#ccc;" ng-show="item.status=='已处理'">
+        <div ng-bind="item.status"></div>    
+      </div>
+      <div class="status" style="color:red;" ng-show="item.status=='需邮寄'">
+        <div ng-bind="item.status"></div>
+      </div>
+      <div class="status" style="color:red;" ng-show="item.status=='未使用'">
+        <div ng-bind="item.status"></div>
+      </div>
+      <div class="status" style="color:red;" ng-show="item.status=='已使用'">
+        <div ng-bind="item.status"></div>
+      </div>
+      <div class="status" style="color:red;" ng-show="item.status=='未付款'">
+        <div ng-bind="item.status"></div>
+      </div>
+    </div>
+  </a>
+  <a ng-click="goto(item.order_id,openid,usertype)"">  
+    <div class="bottom">
+      <div class="left">
+        <div class="recieve" ng-bind="'收货人：'+item.order_name"></div>
+        <div class="recievetel" ng-bind="'手机号：'+item.order_tel"></div>
+        <div class="time" ng-bind="'使用时间：'+item.useStart+'至'+item.useEnd"></div>
+        <div class="time" ng-bind="' 备注（或地址）：'+item.address"></div>
+        <div class="order">订单详情：{{item.order_detail}}</div> 
+      </div>
+    </div>
+  </a>  
+</li>
+<script>
+  // //获取键盘搜索按钮事件
+  //   $("#searchInput").on('keypress', function(e) {
+  //       // 只要按下键盘就会有东西
+  //       var keycode = e.keyCode;
+  //       //获取搜索框的值
+  //       var searchContent = $(this).val();
+  //       // 回车是13，手机键盘中搜索相当于13
+  //       if (keycode == '13') {
+  //           e.preventDefault();
+  //           //请求搜索接口
+  //           if (searchContent == '') {
+  //               alert('请输入检索内容！');
+  //           } else {
+  //               // 将serchContent发送给后台
+
+  //           }
+  //       }
+  //   });
+  // 上面的jquery代码用angular代替了，因为好修改订单中的内容
+  $(".type div a").on("click",function(){
+    $(".type div a").attr("class","");
+    $(this).attr("class","active");
+  });
+
+  $(".type div a").attr("class","");
+    $("#disan").attr("class","active");
+  submit();
+  function submit(){
+    $("#submit").click(function(event){
+        datas={
+            kuaidiCompany:$("#kuaidiCompany").val(),
+            kuaidiNumber:$("#kuaidiNumber").val(),
+            }
+            if (datas.kuaidiCompany == '') {
+                $.alert("快递公司不能为空");
+                $("#kuaidiCompany").focus();
+                //如果为空时阻止跳转，默认事件发生
+                event.preventDefault();
+                return;
+            }
+            if (datas.kuaidiNumber == '') {
+                $.alert("快递单号不能为空");
+                $("#kuaidiNumber").focus();
+                return;
+            }
+            console.log(datas);
+            // 把快递信息传给后台
+            $.ajax({
+              url:"../api/tiandan.php",
+              method:"post",
+              data:{
+                kuaidiCompany:datas.kuaidiCompany,
+                kuaidiNumber:datas.kuaidiNumber   
+              },
+              success:function(res){
+              }
+            }); 
+    })
+  } 
+</script>

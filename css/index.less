@@ -1,0 +1,115 @@
+body{
+	overflow-x: hidden;
+}
+.tab{
+	height: 40px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #ccc;
+	.tab-item{
+		flex:1;
+		text-align: center;
+		border-right: 1px solid #ccc;
+		a{	
+			line-height: 40px;
+			&:hover{
+				color:red;
+			}
+		}
+		.current{
+			color: red;
+		}
+	}
+}
+.content{
+	margin: 10px;
+	margin-bottom: 60px;
+	width: 100%;
+	.itmes{
+		width: 100%;
+		.item{
+			margin: 10px 0;
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			border-bottom: 1px solid #ccc;
+			.item-left{
+				width: 20%;
+				img{
+					width: 100%;
+				}
+			}
+			.item-right{ 
+				height: 100%;
+				margin: 0 10px;
+				width: 80%;
+				display: flex;
+				flex-direction: column;
+				.summary{
+				
+				}
+				.second{
+					margin-top: 10px;
+					height: 20px;
+					display: flex;
+					justify-content:space-between;
+					.money{
+						line-height: 20px;
+						color: red;
+						font-size: 20px;
+					}
+					.origin{
+						line-height: 20px;
+						font-size: 15px;
+						color: #ccc;
+						text-decoration: line-through; 
+					}
+					.sale{
+						line-height: 20px;
+						margin-right:20px; 
+						font-size: 15px;
+						color: #ccc;
+					}
+				}
+			}
+		}
+	}
+}
+.footer{
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	display: flex;
+	flex-direction: row;
+	background: #fff;
+	border-top: 1px solid #aaa;
+	line-height: 50px;
+	div{
+		position: relative;
+		flex:1;
+		text-align: center;
+		ul{ 
+			display: none;
+			list-style: none;
+			position: absolute;
+			bottom: 60px;
+			left: 35%;
+			line-height: 20px;
+			border: 1px solid #aaa;
+			li{
+				border-bottom: 1px solid #ccc;
+				padding: 5px;
+			}
+		}
+		&:hover{
+			color: red;
+			ul{
+				color: #000;
+				display: block;
+			}
+		}
+	}
+}
+.weui-tabbar{ position:fixed; z-index:2;}
